@@ -1,0 +1,34 @@
+Things this app needs
+-**** =stretch
+
+multi-4-part view (useHistory + route) - each step needs a prompt on client side to be filled
+    How Are you Feeling  -> type=num
+    How well do you understand the content -> type=num
+    How well are you being supported -> type=num
+    Any comments you want to leave? -> type=text
+    +
+    Users can Review feedback
+        submit button -> post, clear reducer, route to thank you
+    +
+    Thank you component
+        'leave new feedback button' -> routed you to start of survey for new submit
+
+    *** add a /admin where to display all feedback, most recent at top (Id Desc?) and delete/alert of delete
+    *** allow user to go back and edit steps 
+    *** style with Material-UI
+    *** Deploy with Heroku
+
+
+ToDo List
+
+[ ] npm install everything
+[ ] organize component
+[ ] build out server
+    -***GET, POST, ***DELETE
+[ ] build out reducer tool - index.jsx
+[ ] Organize components with render
+[ ] build out intake forms
+[ ] client prompt for not null data
+[ ] Organize Routes on APP.jsx
+[ ] UseSelector to pull data for review feedback page
+[ ] style :)
