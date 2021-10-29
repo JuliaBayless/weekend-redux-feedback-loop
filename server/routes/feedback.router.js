@@ -5,7 +5,8 @@ const pool = require('../modules/pool');
 
 //GET the info for '/admin'
 router.get('/', (req, res) => {
-    pool.query('SELECT * FROM "feedback" ORDER BY "id" DESC;')
+    pool
+        .query('SELECT * FROM "feedback" ORDER BY "id" DESC;')
         .then((result) => {
             res.send(result.rows);
         })
@@ -28,7 +29,8 @@ router.post('/', (req, res) => {
     `
     let values = [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments]
 
-    pool.query(sqlText, values)
+    pool
+        .query(sqlText, values)
         .then((result) => {
             console.log('SUCCESS - post to DB');
             res.sendStatus(201)
@@ -40,6 +42,24 @@ router.post('/', (req, res) => {
 }) //end POST
 
 
+router.delete('/:id', (req, res) => {
+    let idToDelete = req.params.id;
+    console.log('Item to DELETE', idToDelete);
 
+    const queryText = `
+    DELETE from "feedback"
+    WHERE "id" = $1;
+    `
+    let value = [idToDelete]
+    pool
+        .query(queryText, value)
+        .then((response) => {
+            res.sendStatus(204);
+        })
+        .catch((error) => {
+            console.log('Error in DELETE', error);
+            res.sendStatus(500);
+        })
+}) //end DELETE
 
 module.exports = router;
