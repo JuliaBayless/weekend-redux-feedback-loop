@@ -13,10 +13,10 @@ multi-4-part view (useHistory + route) - each step needs a prompt on client side
     Thank you component
         'leave new feedback button' -> routed you to start of survey for new submit
 
-    *** add a /admin where to display all feedback, most recent at top (Id Desc?) and delete/alert of delete
-    *** allow user to go back and edit steps 
-    *** style with Material-UI
-    *** Deploy with Heroku
+    [X] *** add a /admin where to display all feedback, most recent at top (Id Desc?) and delete/alert of delete
+    [ ]*** allow user to go back and edit steps 
+    [ ]*** style with Material-UI
+    [ ]*** Deploy with Heroku
 
 
 ToDo List
@@ -28,7 +28,7 @@ ToDo List
 [X] build out reducer tool - index.jsx
 [X] Organize components with render
 [X] build out intake forms
-[ ] client prompt for not null data
+[X] client prompt for not null data
 [X] Organize Routes on APP.jsx
 [X] UseSelector to pull data for review feedback page
 [ ] style :)

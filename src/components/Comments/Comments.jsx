@@ -1,9 +1,11 @@
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Comments() {
-    const [comment, setComment] = useState('');
+    const formData = useSelector(store => store.feedbackReducer)
+    const [comment, setComment] = useState(formData.comments || '');
     //navigate to the next page with history
     const history = useHistory();
     // trigger that sends data to reducer
@@ -22,6 +24,11 @@ function Comments() {
         history.push('/review')
     }
 
+    //back button
+    const handleSubmitBack = () => {
+        history.push('/understanding')
+    }
+
     return (
         <>
             <h1>Would you like to leave a comment?</h1>
@@ -32,6 +39,9 @@ function Comments() {
                 />
                 <button className="Submit"
                     onClick={handleSubmitComment}>Next</button>
+                <div>
+                    <button className="backBtn" onClick={handleSubmitBack}>Back</button>
+                </div>
             </div>
         </>
     )

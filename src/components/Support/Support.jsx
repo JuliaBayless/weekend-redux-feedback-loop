@@ -1,9 +1,11 @@
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Support() {
-    const [support, setSupport] = useState('');
+    const formData = useSelector(store => store.feedbackReducer)
+    const [support, setSupport] = useState(formData.support || '');
     //navigate to the next page with history
     const history = useHistory();
     // trigger that sends data to reducer
@@ -15,11 +17,22 @@ function Support() {
     const handleSubmitSupport = () => {
         event.preventDefault();
         //send info off with trigger
-        dispatch({
-            type: 'SUBMIT_SUPPORT',
-            payload: support
-        });
-        history.push('/comments')
+        if (support === '') {
+            alert('Please fill in field')
+        } else if (support > 5 || support < 0) {
+            alert('Please fill in field with numbers between 0 - 5')
+        } else {
+            dispatch({
+                type: 'SUBMIT_SUPPORT',
+                payload: support
+            });
+            history.push('/comments')
+        }
+    } //end handleSubmit
+
+    //back button
+    const handleSubmitBack = () => {
+        history.push('/understanding')
     }
 
     return (
@@ -30,10 +43,14 @@ function Support() {
                 <input type="number"
                     max="5"
                     min="0"
+                    value={support}
                     onChange={(event) => setSupport(event.target.value)}
                 />
                 <button className="Submit"
                     onClick={handleSubmitSupport}>Next</button>
+                <div>
+                    <button className="backBtn" onClick={handleSubmitBack}>Back</button>
+                </div>
             </div>
         </>
     )
