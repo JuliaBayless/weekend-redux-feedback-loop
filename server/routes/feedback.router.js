@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const express = require('express');
+const { default: logger } = require('redux-logger');
 const router = express.Router();
 const pool = require('../modules/pool');
 
@@ -41,6 +42,31 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 }) //end POST
+
+router.put('/:id', (req, res) => {
+    let idToChange = req.params.id;
+    console.log('Item to Change', idToChange);
+    console.log(req.body.flagged);
+    
+    //toggling the T/F value with put
+    let newBoolean = !req.body.flagged
+
+    const queryText = `
+            UPDATE "feedback"
+            SET "flagged" = $2
+            WHERE "id" = $1
+    `
+    let value = [idToChange, newBoolean]
+    pool
+        .query(queryText, value)
+        .then((response) => {
+            res.sendStatus(204);
+        })
+        .catch((error) => {
+            console.log('Error in DELETE', error);
+            res.sendStatus(500);
+        })
+}) //end PUT
 
 
 router.delete('/:id', (req, res) => {
