@@ -22,19 +22,19 @@ function Comments() {
         history.push('/review')
     }
 
-return (
-    <>
-    <h1>Would you like to leave a comment?</h1>
-    <div className="inputBox">
-        <input type="text" 
-        value={comment}
-        onChange={(event) => setComment(event.target.value)}
-        />
-        <button className="Submit" 
-        onClick={handleSubmitComment}>Next</button>
-    </div>
-    </>
-)
+    return (
+        <>
+            <h1>Would you like to leave a comment?</h1>
+            <div className="inputBox">
+                <input type="text"
+                    value={comment}
+                    onChange={(event) => setComment(event.target.value)}
+                />
+                <button className="Submit"
+                    onClick={handleSubmitComment}>Next</button>
+            </div>
+        </>
+    )
 
 
 }//end Comments

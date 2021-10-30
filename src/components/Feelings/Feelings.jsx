@@ -22,22 +22,22 @@ function Feelings() {
         history.push('/understanding')
     }
 
-return (
-    <>
-    <h1>How are you feeling today?</h1>
-    <p>Please rate between a 0-5</p>
-    <div className="inputBox">
-        <input type="number" 
-        max="5"
-        min="0"
-        // value={feeling} -> don't need this if I want data to stay for 'back' button
-        onChange={(event) => setFeeling(event.target.value)}
-        />
-        <button className="Submit" 
-        onClick={handleSubmitFeelings}>Next</button>
-    </div>
-    </>
-)
+    return (
+        <>
+            <h1>How are you feeling today?</h1>
+            <p>Please rate between a 0-5</p>
+            <div className="inputBox">
+                <input type="number"
+                    max="5"
+                    min="0"
+                    // value={feeling} -> don't need this if I want data to stay for 'back' button
+                    onChange={(event) => setFeeling(event.target.value)}
+                />
+                <button className="Submit"
+                    onClick={handleSubmitFeelings}>Next</button>
+            </div>
+        </>
+    )
 
 }//end Feelings
 
