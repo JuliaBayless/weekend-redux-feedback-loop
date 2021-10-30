@@ -13,13 +13,19 @@ function Feelings() {
     //function that will dispatch data to reducer 
     //and use history
     const handleSubmitFeelings = () => {
-        event.preventDefault();
-        //send info off with trigger
-        dispatch({
-            type: 'SUBMIT_FEELING',
-            payload: feeling
-        });
-        history.push('/understanding')
+        if (feeling === '') {
+            alert('Please fill in field')
+        } else if (feeling > 5 || feeling < 0) {
+            alert('Please fill in field with numbers between 0 - 5')
+        } else {
+            event.preventDefault();
+            //send info off with trigger
+            dispatch({
+                type: 'SUBMIT_FEELING',
+                payload: feeling
+            });
+            history.push('/understanding')
+        }
     }
 
     return (

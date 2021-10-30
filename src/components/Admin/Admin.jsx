@@ -31,6 +31,7 @@ function Admin() {
 //render to the DOM via table
     return (
         <table>
+            <thead>
             <tr>
                 <th>Feelings</th>
                 <th>Understanding</th>
@@ -38,14 +39,15 @@ function Admin() {
                 <th>Comments</th>
                 <th>Date</th>
             </tr>
+            </thead>
             {feedbackList.map((feedback) => {
                 return (
-                    <tr key={feedback.id}>
+                    <tbody key={feedback.id}>
                         <AdminItem
                             feedback={feedback}
                             fetchFeedback={fetchFeedback}
                         />
-                    </tr>
+                    </tbody>
                 )
             })}
 

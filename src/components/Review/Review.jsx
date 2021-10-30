@@ -13,7 +13,7 @@ function Review() {
 
     //POST to database!
     const handleSubmitAllFeedback = () => {
-        axios.post('/feedback', { feedback })
+        axios.post('/feedback', feedback)
             .then(response => {
                 // dispatch action to reset cart
                 dispatch({

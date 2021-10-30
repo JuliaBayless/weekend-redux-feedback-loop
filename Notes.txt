@@ -22,14 +22,14 @@ multi-4-part view (useHistory + route) - each step needs a prompt on client side
 ToDo List
 
 [X] npm install everything
-[ ] organize component
+[X] organize component
 [X] build out server
     -***GET, POST, ***DELETE
 [X] build out reducer tool - index.jsx
-[ ] Organize components with render
-[ ] build out intake forms
+[X] Organize components with render
+[X] build out intake forms
 [ ] client prompt for not null data
 [X] Organize Routes on APP.jsx
-[ ] UseSelector to pull data for review feedback page
+[X] UseSelector to pull data for review feedback page
 [ ] style :)
 [X] *** Admin page built out
