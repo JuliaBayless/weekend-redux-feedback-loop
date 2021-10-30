@@ -29,6 +29,7 @@ ToDo List
 [ ] Organize components with render
 [ ] build out intake forms
 [ ] client prompt for not null data
-[ ] Organize Routes on APP.jsx
+[X] Organize Routes on APP.jsx
 [ ] UseSelector to pull data for review feedback page
 [ ] style :)
+[X] *** Admin page built out
