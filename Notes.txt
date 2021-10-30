@@ -25,7 +25,7 @@ ToDo List
 [ ] organize component
 [X] build out server
     -***GET, POST, ***DELETE
-[ ] build out reducer tool - index.jsx
+[X] build out reducer tool - index.jsx
 [ ] Organize components with render
 [ ] build out intake forms
 [ ] client prompt for not null data
