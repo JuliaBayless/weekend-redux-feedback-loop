@@ -1,9 +1,13 @@
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Feelings() {
-    const [feeling, setFeeling] = useState('');
+ 
+    const formData = useSelector(store => store.feedbackReducer)
+    const [feeling, setFeeling] = useState(formData.feeling || '');
+
     //navigate to the next page with history
     const history = useHistory();
     // trigger that sends data to reducer
@@ -13,6 +17,8 @@ function Feelings() {
     //function that will dispatch data to reducer 
     //and use history
     const handleSubmitFeelings = () => {
+        event.preventDefault();
+        //conditional for input value
         if (feeling === '') {
             alert('Please fill in field')
         } else if (feeling > 5 || feeling < 0) {
@@ -36,7 +42,7 @@ function Feelings() {
                 <input type="number"
                     max="5"
                     min="0"
-                    // value={feeling} -> don't need this if I want data to stay for 'back' button
+                    value={feeling} //-> don't need this if I want data to stay for 'back' button
                     onChange={(event) => setFeeling(event.target.value)}
                 />
                 <button className="Submit"

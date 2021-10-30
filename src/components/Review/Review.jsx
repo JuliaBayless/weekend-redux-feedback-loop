@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 
+
 function Review() {
     //grab feedback from the store
     const feedback = useSelector(store => store.feedbackReducer)
@@ -28,6 +29,11 @@ function Review() {
             })
     } //end handleSubmitAllFeedback
 
+    //back button
+    const handleSubmitBack = () => {
+        history.push('/comments')
+    }
+
     return (
         <>
             <div>
@@ -39,6 +45,9 @@ function Review() {
             <h2>Comments: {feedback.comments}</h2>
             <button
                 onClick={handleSubmitAllFeedback}>Submit</button>
+            <div>
+                <button className="backBtn" onClick={handleSubmitBack}>Back</button>
+            </div>
         </>
 
     )
