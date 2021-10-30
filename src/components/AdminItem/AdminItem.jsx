@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import './AdminItem.css'
 
 function AdminItem({ feedback, fetchFeedback }) {
 
-    const [flag, setFlag] = useState(feedback.flagged)
+    let flag = feedback.flagged
 
     const toggleFlag = () => {
+        console.log('Changing this color', flag, feedback.id);
         axios
             .put(`/feedback/${feedback.id}`)
             .then(response => {
@@ -34,7 +36,8 @@ function AdminItem({ feedback, fetchFeedback }) {
 
     return (
         <>
-            <tr>
+        
+            <tr className={flag ? "highlight" : ""}>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>

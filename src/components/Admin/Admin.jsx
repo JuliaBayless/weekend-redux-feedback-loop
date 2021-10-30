@@ -46,6 +46,7 @@ function Admin() {
                         <AdminItem
                             feedback={feedback}
                             fetchFeedback={fetchFeedback}
+                            feedbackList={feedbackList}
                         />
                     </tbody>
                 )
