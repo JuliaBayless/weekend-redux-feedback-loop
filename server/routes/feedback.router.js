@@ -25,8 +25,9 @@ router.post('/', (req, res) => {
     //insert these 'sanitized' values into DB
     const sqlText = `
     INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-    VALUES ($1, 2$, $3, $4');
-    `
+    VALUES ($1, $2, $3, $4);
+    `;
+
     let values = [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments]
 
     pool
