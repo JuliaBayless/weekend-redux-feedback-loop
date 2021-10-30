@@ -21,9 +21,9 @@ multi-4-part view (useHistory + route) - each step needs a prompt on client side
 
 ToDo List
 
-[ ] npm install everything
+[X] npm install everything
 [ ] organize component
-[ ] build out server
+[X] build out server
     -***GET, POST, ***DELETE
 [ ] build out reducer tool - index.jsx
 [ ] Organize components with render
