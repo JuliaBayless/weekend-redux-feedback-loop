@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminItem from "../AdminItem/AdminItem";
 import axios from "axios";
 
@@ -52,3 +52,5 @@ function Admin() {
         </table>
     )
 } //end Admin
+
+export default Admin;
