@@ -28,7 +28,8 @@ function Support() {
             <p>Please rate between a 0-5</p>
             <div className="inputBox">
                 <input type="number"
-                    // value={feeling} -> don't need this if I want data to stay for 'back' button
+                    max="5"
+                    min="0"
                     onChange={(event) => setSupport(event.target.value)}
                 />
                 <button className="Submit"
