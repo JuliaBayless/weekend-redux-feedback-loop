@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
-
+import { Container, Button, Box, Paper } from '@mui/material';
 
 function Review() {
     //grab feedback from the store
@@ -36,6 +36,7 @@ function Review() {
 
     return (
         <>
+        <Container className="valueIn" fixed component={Paper}>
             <div>
                 <h1>Review Your Feedback</h1>
             </div>
@@ -43,11 +44,21 @@ function Review() {
             <h2>Understanding: {feedback.understanding}</h2>
             <h2>Support: {feedback.support}</h2>
             <h2>Comments: {feedback.comments}</h2>
-            <button
-                onClick={handleSubmitAllFeedback}>Submit</button>
-            <div>
-                <button className="backBtn" onClick={handleSubmitBack}>Back</button>
-            </div>
+
+            <Button className="submitBtn"
+                variant="contained"
+                size="large"
+                color="warning"
+                onClick={handleSubmitAllFeedback}>Submit</Button>
+                
+            <Box className="btnContainerReview">
+                <Button className="submitBtn "
+                    variant="outlined"
+                    size="large"
+                    color="error"
+                    onClick={handleSubmitBack}>Back</Button>
+            </Box>
+            </Container>
         </>
 
     )
