@@ -77,43 +77,11 @@ function Admin() {
                             />
                   </TableBody>
                 ))}
-            
             </Table>
           </TableContainer>
           </Container>
         );
 
-     
-  
-    //render to the DOM via table
-    // return (
-        // <table>
-        //     <thead>
-        //         <tr>
-        //             <th>Feelings</th>
-        //             <th>Understanding</th>
-        //             <th>Support</th>
-        //             <th>Comments</th>
-        //             <th>Date</th>
-        //         </tr>
-        //     </thead>
-        //     {
-        //         feedbackList.map((feedback) => {
-        //             return (
-        //                 <tbody key={feedback.id}>
-        //                     <AdminItem
-        //                         feedback={feedback}
-        //                         fetchFeedback={fetchFeedback}
-        //                         feedbackList={feedbackList}
-        //                     />
-        //                 </tbody>
-        //             )
-        //         })
-        //     }
-
-        // </table >
-    // )
-                
 } //end Admin
 
 export default Admin;

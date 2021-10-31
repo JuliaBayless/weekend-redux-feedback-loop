@@ -5,9 +5,6 @@ import Button from '@mui/material/Button'
 import * as React from 'react';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { createTheme } from '@mui/material/styles';
-
-
 
 function AdminItem({ feedback, fetchFeedback }) {
     //holds boolean for toggle of row
@@ -40,9 +37,8 @@ function AdminItem({ feedback, fetchFeedback }) {
             });
     } //end deleteFeedback
 
-
+    //test boolean value
     console.log('This is flag', flag);
-    
     return (
         <>
             <TableRow className={flag ? "highlight" : ""}>
@@ -58,13 +54,14 @@ function AdminItem({ feedback, fetchFeedback }) {
                         color="error"
                         variant="outlined"
                         onClick={deleteFeedback}>Remove<DeleteIcon />
-                    </Button></TableCell>
+                    </Button>
+                </TableCell>
                 <TableCell align="right">
                     {flag ? <Button
                         color="warning"
                         variant="outlined"
-                        onClick={toggleFlag}>Unflag</Button> :
-                        <Button
+                        onClick={toggleFlag}>Unflag</Button>
+                        : <Button
                             color="warning"
                             variant="outlined"
                             onClick={toggleFlag}> Add Flag</Button>}
