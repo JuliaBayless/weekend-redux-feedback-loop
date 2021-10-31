@@ -68,9 +68,9 @@ function Support() {
     };
     return (
         <>
-        <Container className="valueIn" fixed component={Paper}>
-            <h1>How supported do you feel?</h1>
-            <Box>
+            <Container className="valueIn" fixed component={Paper}>
+                <h1>How supported do you feel?</h1>
+                <Box>
                     <StyledRating className="hearts"
                         name="hover-feedback"
                         value={support}
@@ -90,8 +90,15 @@ function Support() {
                     {support !== null && (
                         <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : support]}</Box>
                     )}
-                    
+
                 </Box>
+
+
+                <Button className="submitBtn"
+                    variant="outlined"
+                    size="large"
+                    color="error"
+                    onClick={handleSubmitBack}>Back</Button>
 
                 <Button className="submitBtn"
                     variant="outlined"
