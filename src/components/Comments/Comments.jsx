@@ -2,6 +2,7 @@ import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Container, Button, Paper, Box, TextField } from '@mui/material';
 
 function Comments() {
     const formData = useSelector(store => store.feedbackReducer)
@@ -31,18 +32,32 @@ function Comments() {
 
     return (
         <>
-            <h1>Would you like to leave a comment?</h1>
-            <div className="inputBox">
-                <input type="text"
+            <Container className="valueIn" fixed component={Paper}>
+                <h1>Would you like to leave a comment?</h1>
+
+                <TextField fullWidth
+                    id="outlined-basic"
+                    label="Comment Here"
+                    variant="outlined"
+                    type="text"
+                    color="warning"
                     value={comment}
                     onChange={(event) => setComment(event.target.value)}
                 />
-                <button className="Submit"
-                    onClick={handleSubmitComment}>Next</button>
-                <div>
-                    <button className="backBtn" onClick={handleSubmitBack}>Back</button>
-                </div>
-            </div>
+                <Box>
+                    <Button className="submitBtn"
+                        variant="outlined"
+                        size="large"
+                        color="error"
+                        onClick={handleSubmitBack}>Back</Button>
+
+                    <Button className="submitBtn"
+                        variant="outlined"
+                        size="large"
+                        color="warning"
+                        onClick={handleSubmitComment}>Next</Button>
+                </Box>
+            </Container>
         </>
     )
 

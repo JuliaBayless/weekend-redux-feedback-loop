@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { Container, Button, sizing } from '@mui/material';
+import { Container, Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 
 function Support() {

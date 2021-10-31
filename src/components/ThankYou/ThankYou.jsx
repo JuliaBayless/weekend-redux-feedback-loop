@@ -16,11 +16,11 @@ function ThankYou() {
             <p>You're feedback has been submitted!</p>
             <p>If you'd like to leave new feedback, just click the button</p>
 
-            <Button className="submitBtn "
+            <Button className="submitBtn"
                 variant="outlined"
                 size="large"
                 color="warning"
-                onClick={handleSubmitStartOver}>Leave New FeedBack</Button>
+                onClick={handleSubmitStartOver}>New FeedBack</Button>
         </Container>
         </>
     )
