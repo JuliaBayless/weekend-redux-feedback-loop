@@ -16,8 +16,7 @@ import Paper from '@mui/material/Paper';
 function Feelings() {
 
     const formData = useSelector(store => store.feedbackReducer)
-    const [feeling, setFeeling] = useState(formData.feeling || '');
-    const [value, setValue] = React.useState(2);
+    const [feeling, setFeeling] = useState(formData.feeling || 0);
     const [hover, setHover] = React.useState(-1);
 
     //navigate to the next page with history
@@ -33,8 +32,8 @@ function Feelings() {
         //conditional for input value 
         if (feeling === '') {
             alert('Please fill in field')
-        } else if (feeling > 5 || feeling < 0) {
-            alert('Please pick a number between 0 - 5')
+        } else if (feeling > 5 || feeling < 0.5) {
+            alert('Please pick your number of heart containers => 0 - 5')
         } else {
             event.preventDefault();
             //send info off with trigger
