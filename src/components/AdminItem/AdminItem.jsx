@@ -1,11 +1,19 @@
 import axios from "axios";
-import { useState } from "react";
 import './AdminItem.css'
+import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button'
+import * as React from 'react';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import { createTheme } from '@mui/material/styles';
+
+
 
 function AdminItem({ feedback, fetchFeedback }) {
-
+    //holds boolean for toggle of row
     let flag = feedback.flagged
 
+    //toggle function
     const toggleFlag = () => {
         console.log('Changing this color', flag, feedback.id);
         axios
@@ -18,7 +26,7 @@ function AdminItem({ feedback, fetchFeedback }) {
             })
     }
 
-
+    //delete row
     const deleteFeedback = () => {
         console.log('In deleteFeedback', feedback.id);
         axios
@@ -32,20 +40,36 @@ function AdminItem({ feedback, fetchFeedback }) {
             });
     } //end deleteFeedback
 
-    console.log('This is flag', flag);
 
+    console.log('This is flag', flag);
+    
     return (
         <>
-        
-            <tr className={flag ? "highlight" : ""}>
-                <td>{feedback.feeling}</td>
-                <td>{feedback.understanding}</td>
-                <td>{feedback.support}</td>
-                <td>{feedback.comments}</td>
-                <td>{feedback.date}</td>
-                <td><button className="deleteBtn" onClick={deleteFeedback}>Remove</button></td>
-                <td><button className="flagBtn" onClick={toggleFlag}>Flag</button></td>
-            </tr>
+            <TableRow className={flag ? "highlight" : ""}>
+                <TableCell component="th" scope="row">
+                    {feedback.feeling}
+                </TableCell>
+                <TableCell align="right">{feedback.understanding}</TableCell>
+                <TableCell align="right">{feedback.support}</TableCell>
+                <TableCell align="right">{feedback.comments}</TableCell>
+                <TableCell align="right">{feedback.date}</TableCell>
+                <TableCell align="right">
+                    <Button
+                        color="error"
+                        variant="outlined"
+                        onClick={deleteFeedback}>Remove<DeleteIcon />
+                    </Button></TableCell>
+                <TableCell align="right">
+                    {flag ? <Button
+                        color="warning"
+                        variant="outlined"
+                        onClick={toggleFlag}>Unflag</Button> :
+                        <Button
+                            color="warning"
+                            variant="outlined"
+                            onClick={toggleFlag}> Add Flag</Button>}
+                </TableCell>
+            </TableRow>
         </>
     )
 }//end AdminItem
