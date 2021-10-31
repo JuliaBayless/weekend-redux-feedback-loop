@@ -33,7 +33,7 @@ function Feelings() {
         if (feeling === '') {
             alert('Please fill in field')
         } else if (feeling > 5 || feeling < 0.5) {
-            alert('Please pick your number of heart containers => 0 - 5')
+            alert('Please pick your number of heart containers')
         } else {
             event.preventDefault();
             //send info off with trigger
